@@ -16,17 +16,13 @@ export default function Home() {
       <div className="absolute inset-0 bg-black/35" />
 
       <div className="relative flex min-h-screen flex-col justify-between">
-        <header className="border-b border-zinc-900/70 bg-black/90 px-4 py-4 md:px-8">
-          <Link
-            href="/"
-            aria-label="Go to Bad Macro home"
-            className="inline-block transition-opacity hover:opacity-90"
-          >
-            <span className="font-display text-5xl uppercase tracking-[0.06em] text-paper md:text-6xl">
-              Bad Macro
-            </span>
-          </Link>
-        </header>
+        <Link
+          href="/"
+          aria-label="Go to Bad Macro home"
+          className="absolute left-[1.8%] top-[1.2%] z-20 block h-[11.5%] w-[36%] max-h-[92px] max-w-[390px] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal"
+        >
+          <span className="sr-only">Bad Macro Home</span>
+        </Link>
 
         <section className="grid grid-cols-1 border-t border-zinc-900/70 bg-black/90 md:grid-cols-5">
           {sections.map((section) => (
