@@ -210,7 +210,8 @@ cohesive identity**.
 
 ## Deployment Runbook (GitHub + Vercel + GoDaddy)
 
-This project is ready to deploy as a static Vercel site (`index.html` + `styles.css`).
+This project is now a Next.js (App Router) site using TypeScript + Tailwind CSS.
+Vercel auto-detects the framework and runs the standard Next.js build.
 
 ### 1) Initialize a standalone git repo in `BadMacro`
 
@@ -250,7 +251,7 @@ gh repo create BadMacro --public --source=. --remote=origin --push
 4. Framework preset: **Other** (or auto-detected static).
 5. Deploy.
 
-No build command is required for this static setup.
+Default Next.js build settings are correct for this project.
 
 ### 4) Connect `badmacro.com`
 
