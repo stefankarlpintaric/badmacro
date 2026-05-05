@@ -5,7 +5,7 @@ import { sections } from "./siteMap";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-paper">
-      <section className="relative h-[68vh] min-h-[420px] w-full overflow-hidden">
+      <section className="relative h-[50vh] min-h-0 w-full overflow-hidden sm:h-[62vh] md:h-[68vh] md:min-h-[420px]">
         <Link
           href="/"
           aria-label="Go to Bad Macro home"
@@ -19,8 +19,10 @@ export default function Home() {
           alt="Bad Macro cinematic corridor background"
           fill
           priority
-          className="object-cover object-top"
+          className="object-cover object-left-top md:object-top"
         />
+
+        <div className="absolute inset-x-0 bottom-0 h-[22%] bg-black md:hidden" />
       </section>
 
       <section className="grid grid-cols-1 border-t border-zinc-900/80 bg-black md:grid-cols-5">
@@ -53,7 +55,7 @@ export default function Home() {
           </article>
         ))}
 
-        <article className="flex items-end justify-between p-5">
+        <article className="hidden items-end justify-between p-5 md:flex">
           <Link href="/" className="font-display text-4xl uppercase text-signal">
             Bad Macro
           </Link>
