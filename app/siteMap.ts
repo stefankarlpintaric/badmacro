@@ -32,7 +32,7 @@ export const sections: Section[] = [
     slug: "signals",
     links: [
       {
-        label: "The Lifted WIP",
+        label: "The Lifted",
         slug: "the-lifted-wip",
         audioSrc: "/signals/the-lifted-wip.mp3"
       },
