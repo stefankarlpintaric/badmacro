@@ -2,7 +2,7 @@ export type Section = {
   id: string;
   title: string;
   slug: string;
-  links: Array<{ label: string; slug: string }>;
+  links: Array<{ label: string; slug: string; audioSrc?: string }>;
 };
 
 export const sections: Section[] = [
@@ -31,9 +31,21 @@ export const sections: Section[] = [
     title: "Signals",
     slug: "signals",
     links: [
-      { label: "Signal 01", slug: "signal-01" },
-      { label: "Signal 02", slug: "signal-02" },
-      { label: "Signal 03", slug: "signal-03" }
+      {
+        label: "The Lifted WIP",
+        slug: "the-lifted-wip",
+        audioSrc: "/signals/the-lifted-wip.mp3"
+      },
+      {
+        label: "Fried Chips",
+        slug: "fried-chips",
+        audioSrc: "/signals/fried-chips.mp3"
+      },
+      {
+        label: "Lotus Flower Final",
+        slug: "lotus-flower-final",
+        audioSrc: "/signals/lotus-flower-final.mp3"
+      }
     ]
   },
   {

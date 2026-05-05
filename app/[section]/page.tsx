@@ -20,8 +20,9 @@ export default async function SectionPage({ params }: SectionPageProps) {
           {section.title}
         </h1>
         <p className="mb-8 text-zinc-300">
-          This is a placeholder page for {section.title}. Replace with live
-          content when ready.
+          {section.slug === "signals"
+            ? "Select a signal below to open a playable track page."
+            : `This is a placeholder page for ${section.title}. Replace with live content when ready.`}
         </p>
         <ul className="mb-8 space-y-2 text-sm uppercase tracking-[0.16em] text-zinc-200">
           {section.links.map((link) => (

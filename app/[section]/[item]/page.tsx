@@ -21,9 +21,21 @@ export default async function ItemPage({ params }: ItemPageProps) {
         <h1 className="font-display mb-2 text-5xl uppercase text-signal">
           {result.item.label}
         </h1>
-        <p className="mb-8 text-zinc-300">
-          Placeholder route for {result.section.title} / {result.item.label}.
-        </p>
+        {result.section.slug === "signals" && result.item.audioSrc ? (
+          <div className="mb-8">
+            <p className="mb-4 text-zinc-300">
+              Stream this signal directly from the Bad Macro archive.
+            </p>
+            <audio controls preload="metadata" className="w-full">
+              <source src={result.item.audioSrc} type="audio/mpeg" />
+              Your browser does not support audio playback.
+            </audio>
+          </div>
+        ) : (
+          <p className="mb-8 text-zinc-300">
+            Placeholder route for {result.section.title} / {result.item.label}.
+          </p>
+        )}
         <div className="flex gap-6 text-sm uppercase tracking-[0.16em]">
           <Link href={`/${result.section.slug}`} className="hover:text-signal">
             ← Back to {result.section.title}
