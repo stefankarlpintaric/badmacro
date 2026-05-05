@@ -1,78 +1,72 @@
 import Image from "next/image";
-
-const sections = [
-  {
-    id: "01",
-    title: "Music",
-    links: ["Apple Music", "Spotify", "YouTube"]
-  },
-  {
-    id: "02",
-    title: "Booking",
-    links: ["Inquiries", "Availability", "Contact"]
-  },
-  {
-    id: "03",
-    title: "Signals",
-    links: ["Signal 01", "Signal 02", "Signal 03"]
-  },
-  {
-    id: "04",
-    title: "System",
-    links: ["Updates", "Archive", "Process"]
-  }
-];
+import Link from "next/link";
+import { sections } from "./siteMap";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-obsidian text-paper">
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col px-4 py-4 md:px-8">
-        <header className="mb-4 border border-zinc-900 bg-black px-5 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="font-display text-4xl uppercase tracking-widest md:text-5xl">
-              Bad Macro
-            </h1>
-            <span className="text-signal text-xl">+</span>
-          </div>
+    <main className="relative min-h-screen overflow-hidden bg-black text-paper">
+      <Image
+        src="/badmacro-background.png"
+        alt="Bad Macro cinematic corridor background"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+
+      <div className="absolute inset-0 bg-black/35" />
+
+      <div className="relative flex min-h-screen flex-col justify-between">
+        <header className="border-b border-zinc-900/70 bg-black/90 px-4 py-4 md:px-8">
+          <Link
+            href="/"
+            aria-label="Go to Bad Macro home"
+            className="inline-block transition-opacity hover:opacity-90"
+          >
+            <Image
+              src="/badmacro-background.png"
+              alt="Bad Macro"
+              width={430}
+              height={95}
+              className="h-[58px] w-[260px] object-cover object-left-top md:h-[72px] md:w-[340px]"
+            />
+          </Link>
         </header>
 
-        <section className="relative mb-4 overflow-hidden border border-zinc-900">
-          <Image
-            src="/badmacro-hero.png"
-            alt="Cinematic corridor visual for Bad Macro"
-            width={1600}
-            height={900}
-            className="h-[260px] w-full object-cover md:h-[420px]"
-            priority
-          />
-        </section>
-
-        <section className="grid grid-cols-1 border border-zinc-900 bg-black md:grid-cols-5">
+        <section className="grid grid-cols-1 border-t border-zinc-900/70 bg-black/90 md:grid-cols-5">
           {sections.map((section) => (
             <article
               key={section.id}
-              className="border-b border-zinc-900 p-5 last:border-b-0 md:border-b-0 md:border-r last:md:border-r-0"
+              className="border-b border-zinc-900/70 p-5 last:border-b-0 md:border-b-0 md:border-r"
             >
-              <p className="text-signal mb-2 text-sm font-semibold tracking-[0.18em]">
+              <p className="mb-2 text-sm font-semibold tracking-[0.2em] text-signal">
                 {section.id}
               </p>
-              <h2 className="font-display mb-4 text-4xl uppercase text-signal">
-                {section.title}
-              </h2>
-              <ul className="space-y-1 text-sm uppercase tracking-[0.16em] text-zinc-300">
+              <Link href={`/${section.slug}`} className="block">
+                <h2 className="font-display mb-4 text-4xl uppercase text-signal">
+                  {section.title}
+                </h2>
+              </Link>
+              <ul className="space-y-1 text-sm uppercase tracking-[0.16em] text-zinc-200">
                 {section.links.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.slug}>
+                    <Link
+                      href={`/${section.slug}/${item.slug}`}
+                      className="transition-colors hover:text-signal"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
-              <p className="text-signal mt-4 text-lg">→</p>
+              <p className="mt-4 text-lg text-signal">→</p>
             </article>
           ))}
 
           <article className="flex items-end justify-between p-5">
-            <h2 className="font-display text-4xl uppercase text-signal">
+            <Link href="/" className="font-display text-4xl uppercase text-signal">
               Bad Macro
-            </h2>
-            <span className="text-signal text-2xl">+</span>
+            </Link>
+            <span className="text-2xl text-signal">+</span>
           </article>
         </section>
       </div>
