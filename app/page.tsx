@@ -22,13 +22,9 @@ export default function Home() {
             aria-label="Go to Bad Macro home"
             className="inline-block transition-opacity hover:opacity-90"
           >
-            <Image
-              src="/badmacro-background.png"
-              alt="Bad Macro"
-              width={430}
-              height={95}
-              className="h-[58px] w-[260px] object-cover object-left-top md:h-[72px] md:w-[340px]"
-            />
+            <span className="font-display text-5xl uppercase tracking-[0.06em] text-paper md:text-6xl">
+              Bad Macro
+            </span>
           </Link>
         </header>
 
