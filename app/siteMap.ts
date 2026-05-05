@@ -42,7 +42,7 @@ export const sections: Section[] = [
         audioSrc: "/signals/fried-chips.mp3"
       },
       {
-        label: "Lotus Flower Final",
+        label: "Lotus Flower",
         slug: "lotus-flower-final",
         audioSrc: "/signals/lotus-flower-final.mp3"
       }
