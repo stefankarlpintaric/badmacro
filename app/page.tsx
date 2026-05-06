@@ -1,19 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Bungee } from "next/font/google";
 import { sections } from "./siteMap";
+
+const bungee = Bungee({
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-paper">
-      <section className="relative h-[50vh] min-h-0 w-full overflow-hidden sm:h-[62vh] md:h-[68vh] md:min-h-[420px]">
+      <header className="border-b border-zinc-900/80 bg-black px-4 py-4 md:px-8">
         <Link
           href="/"
           aria-label="Go to Bad Macro home"
-          className="absolute left-[1.8%] top-[1.2%] z-20 block h-[16%] w-[38%] max-h-[98px] max-w-[420px] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal"
+          className={`${bungee.className} inline-block text-5xl uppercase tracking-[0.06em] text-paper transition-opacity hover:opacity-90 md:text-6xl`}
         >
-          <span className="sr-only">Bad Macro Home</span>
+          Bad Macro
         </Link>
+      </header>
 
+      <section className="relative h-[46vh] min-h-0 w-full overflow-hidden sm:h-[56vh] md:h-[62vh] md:min-h-[420px]">
         <Image
           src="/badmacro-background.png"
           alt="Bad Macro cinematic corridor background"
@@ -21,10 +29,8 @@ export default function Home() {
           priority
           quality={100}
           sizes="100vw"
-          className="object-cover object-left-top md:object-top"
+          className="object-cover object-center"
         />
-
-        <div className="absolute inset-x-0 bottom-0 h-[22%] bg-black md:hidden" />
       </section>
 
       <section className="grid grid-cols-1 border-t border-zinc-900/80 bg-black md:grid-cols-5">
@@ -37,7 +43,7 @@ export default function Home() {
               {section.id}
             </p>
             <Link href={`/${section.slug}`} className="block">
-              <h2 className="font-display mb-4 text-4xl uppercase text-signal">
+              <h2 className={`${bungee.className} mb-4 text-4xl uppercase text-signal`}>
                 {section.title}
               </h2>
             </Link>
@@ -58,7 +64,7 @@ export default function Home() {
         ))}
 
         <article className="hidden items-end justify-between p-5 md:flex">
-          <Link href="/" className="font-display text-4xl uppercase text-signal">
+          <Link href="/" className={`${bungee.className} text-4xl uppercase text-signal`}>
             Bad Macro
           </Link>
           <span className="text-2xl text-signal">+</span>
