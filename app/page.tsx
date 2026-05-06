@@ -1,9 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Bungee } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google";
 import { sections } from "./siteMap";
 
 const bungee = Bungee({
+  subsets: ["latin"],
+  weight: "400"
+});
+
+const bowlby = Bowlby_One_SC({
   subsets: ["latin"],
   weight: "400"
 });
@@ -15,7 +21,7 @@ export default function Home() {
         <Link
           href="/"
           aria-label="Go to Bad Macro home"
-          className={`${bungee.className} inline-block text-5xl uppercase tracking-[0.06em] text-paper transition-opacity hover:opacity-90 md:text-6xl`}
+          className={`${bowlby.className} inline-block text-5xl uppercase tracking-[0.04em] text-paper transition-opacity hover:opacity-90 md:text-6xl`}
         >
           Bad Macro
         </Link>
@@ -64,9 +70,9 @@ export default function Home() {
         ))}
 
         <article className="hidden items-end justify-between p-5 md:flex">
-          <Link href="/" className={`${bungee.className} text-4xl uppercase text-signal`}>
+          <span className={`${bungee.className} text-4xl uppercase text-signal`}>
             Bad Macro
-          </Link>
+          </span>
           <span className="text-2xl text-signal">+</span>
         </article>
       </section>
